@@ -1,5 +1,7 @@
 require_relative 'graph.rb'
 
+#return the shortest path for an unweighted directed graph
+
 def shortest_path(root, target)
   queue = [root]
   previous = {root => nil}
