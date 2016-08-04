@@ -1,5 +1,8 @@
 # CCI 1.5 One Away
 
+#  pale, ple -> true 
+#  pale, bake -> false
+
 def one_away?(str1, str2)
   return false if (str1.length - str2.length).abs > 1
   num_edits = 0
