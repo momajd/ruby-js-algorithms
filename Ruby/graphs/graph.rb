@@ -1,12 +1,12 @@
 require 'Set'
 
-# Adjacency list
 class Vertex
   def initialize(val)
     @val = val
     @adjacents = Set.new
+    @incoming = Set.new
   end
-  attr_accessor :val, :adjacents
+  attr_accessor :val, :adjacents, :incoming
 
   def inspect
     @val.to_s
@@ -14,23 +14,16 @@ class Vertex
 end
 
 class Graph
-  attr_reader :vertices
   def initialize
-    # use set so we don't add duplicates into the graph
     @vertices = Set.new
   end
+  attr_reader :vertices
 
-  def add_edge(vertex1, vertex2)
-    @vertices.add(vertex1)
-    @vertices.add(vertex2)
-    vertex1.adjacents.add(vertex2)
-    self
-  end
-
-  def inspect
-    "\n" + @vertices.inject("") do |str, vertex|
-      "#{str.concat(vertex.val.to_s)} : #{vertex.adjacents.map {|v| v.val}} \n"
-    end
+  def add_edge(v1, v2) #v1 to v2
+    @vertices.add(v1)
+    @vertices.add(v2)
+    v1.adjacents.add(v2)
+    v2.incoming.add(v1)
   end
 end
 

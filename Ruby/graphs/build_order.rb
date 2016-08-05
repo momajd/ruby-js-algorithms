@@ -57,6 +57,7 @@ class Graph
 end
 
 def build_order(projects, dependencies)
+  # TODO revise using a queue
   graph = Graph.new(projects, dependencies)
   order = []
 
