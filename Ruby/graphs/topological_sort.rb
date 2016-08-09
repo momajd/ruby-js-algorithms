@@ -1,4 +1,3 @@
-require 'byebug'
 require 'Set'
 
 class Vertex
